@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -39,11 +40,13 @@ public class CustomImageView extends AppCompatImageView {
             public boolean onTouch(View v, MotionEvent event) {
                 int action = event.getAction();
                 if (action == MotionEvent.ACTION_DOWN) {
+                    Log.d("mstate", "Yes");
                     changeColorImage(true);
                 } else if (action == MotionEvent.ACTION_UP) {
+                    Log.d("mstate", "No");
                     changeColorImage(false);
                 }
-                return false;
+                return true;
             }
         });
     }
